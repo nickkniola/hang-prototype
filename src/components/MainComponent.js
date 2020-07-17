@@ -3,7 +3,7 @@ import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
-import Login from './LoginComponent';
+import Home from './HomeComponent/HomeComponent';
 import Pairing from './PairingComponent';
 import Suggest from './SuggestComponent';
 
@@ -14,7 +14,7 @@ class Main extends Component {
             <div>
                 <Header />
                 <Switch>
-                    <Route exact path='/home' component={Login} />
+                    <Route exact path='/home' component={Home} />
                     <Route exact path='/pairing' component={Pairing} />
                     <Route exact path='/suggest' component={Suggest} />
                     <Redirect to='/home' />

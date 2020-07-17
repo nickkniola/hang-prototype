@@ -1,0 +1,41 @@
+import React, { Component } from 'react';
+import { Container, Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
+
+function SignIn() {
+    return (
+        <div>
+            <Container className="py-5 mb-5">
+                <Row className="my-4">
+                    <Col>
+                        <h2>Sign In</h2>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col className="mx-auto" xs={7}>
+                        <Form>
+                            <FormGroup row>
+                                <Label for="loginEmail" sm={3}>Email</Label>
+                                <Col sm={9}>
+                                    <Input type="email" name="email" id="loginEmail" />
+                                </Col>
+                            </FormGroup>
+                            <FormGroup row>
+                                <Label for="inputPassword" sm={3}>Password</Label>
+                                <Col sm={9}>
+                                    <Input type="password" name="password" id="inputPassword" />
+                                </Col>
+                            </FormGroup>
+                        </Form>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Button color="primary">Submit</Button>
+                    </Col>
+                </Row>
+            </Container>
+        </div>
+    )
+}
+
+export default SignIn;

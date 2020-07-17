@@ -11,3 +11,8 @@
   padding: 20px 0;
   color: #6C6C6F;
 }
+
+.home-description {
+  max-width: 30rem;
+  margin: auto;
+}

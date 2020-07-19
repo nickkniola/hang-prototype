@@ -16,3 +16,11 @@
   max-width: 30rem;
   margin: auto;
 }
+
+.main-nav {
+  text-align: center;
+}
+
+.fa {
+  color:white
+}

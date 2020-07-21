@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Button } from 'reactstrap';
+import { Container, Row, Col, Button, Jumbotron } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import '../../App.css';
 
@@ -7,7 +7,8 @@ import '../../App.css';
 function Title() {
     return (
         <div>
-            <Container className="py-5 my-4">
+            <Jumbotron>
+            <Container className="pt-1 my-4">
                 <Row className="my-3">
                     <Col>
                         <h1>Hang</h1>
@@ -26,6 +27,8 @@ function Title() {
                     </Col>
                 </Row>
             </Container>
+            </Jumbotron>
+            
         </div>
     );
 }

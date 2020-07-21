@@ -24,3 +24,19 @@
 .fa {
   color:white
 }
+
+/* .activity-card {
+  width: 40rem;
+} */
+
+.activity-card-title {
+  font-size: 20px;
+}
+
+.activity-card-text {
+  font-size: 16px;
+}
+
+.btn-primary {
+  background-color: #12bbad;
+}

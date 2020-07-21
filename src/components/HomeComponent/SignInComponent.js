@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Container, Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
 function SignIn() {
     return (
         <div>
-            <Container className="py-5 mb-5">
+            <Container className="py-4 mb-5">
                 <Row className="my-4">
                     <Col>
                         <h2>Sign In</h2>

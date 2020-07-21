@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import Activity from './ActivityComponent/ActivityComponent';
 
 class Suggest extends Component {
     render() {
         return (
             <div>
-                Suggest Page
+                <Activity />
             </div>
         )
     }

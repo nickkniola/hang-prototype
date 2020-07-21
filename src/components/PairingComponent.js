@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import Activity from './ActivityComponent/ActivityComponent';
 
 class Pairing extends Component {
     render() {
         return (
             <div>
-                Pairing Page
+                <Activity />
             </div>
         );
     }

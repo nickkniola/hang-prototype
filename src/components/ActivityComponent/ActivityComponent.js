@@ -21,8 +21,9 @@ class Activity extends Component {
                                     <FormGroup className="py-5 px-5">
                                         <Label className="float-left" for="activityMessage">Message Them Directly</Label>
                                         <Input type="textarea" name="activityMessage" id="activityMessage"></Input>
-                                        <Button className="mt-2 float-right" color="secondary">Send</Button>
+                                        <Button type="submit" className="mt-2 float-right" color="secondary">Send</Button>
                                     </FormGroup>
+
                                 </CardBody>
                             </Card>
                         </Col>

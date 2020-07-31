@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { Container, Row, Col, Card, CardHeader, CardBody, CardTitle, CardText, Button, FormGroup, Label, Input } from 'reactstrap';
 
 class Activity extends Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         return (
             <div className="activity py-5">
@@ -14,7 +11,7 @@ class Activity extends Component {
                             <Card className="activity-card text-center">
                                 <CardHeader>Activity Planned</CardHeader>
                                 <CardBody>
-                                    <CardTitle className="activity-card-title">{this.props.activity} at {this.props.location}</CardTitle>
+                                    <CardTitle className="activity-card-title">{this.props.activity} in {this.props.location}</CardTitle>
                                     <CardText className="activity-card-text">{this.props.date} at {this.props.time} with {this.props.name}</CardText>
                                     <Button className="mr-1" color="primary">Accept</Button>
                                     <Button className="ml-1" color="danger">Reject</Button>

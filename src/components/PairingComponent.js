@@ -36,12 +36,11 @@ class Pairing extends Component {
     }
 
     handleSubmit(event) {
-        // alert('Current state is: ' + JSON.stringify(this.state));
-        this.setState({
-            location: this.state.userdata[0].location,
-            name: this.state.userdata[0].name,
+        this.setState(state => ({
+            location: state.userdata[0].location,
+            name: state.userdata[0].name,
             hidden: true
-        })
+        }))
         event.preventDefault();
     }
 

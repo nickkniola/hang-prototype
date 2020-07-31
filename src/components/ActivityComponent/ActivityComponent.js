@@ -14,8 +14,8 @@ class Activity extends Component {
                             <Card className="activity-card text-center">
                                 <CardHeader>Activity Planned</CardHeader>
                                 <CardBody>
-                                    <CardTitle className="activity-card-title">Play Tennis at Griffith Park</CardTitle>
-                                    <CardText className="activity-card-text">July 15 at 12 PM with Sean</CardText>
+                                    <CardTitle className="activity-card-title">{this.props.activity} at {this.props.location}</CardTitle>
+                                    <CardText className="activity-card-text">{this.props.date} at {this.props.time} with {this.props.name}</CardText>
                                     <Button className="mr-1" color="primary">Accept</Button>
                                     <Button className="ml-1" color="danger">Reject</Button>
                                     <FormGroup className="py-5 px-5">

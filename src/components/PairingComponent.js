@@ -3,9 +3,6 @@ import Activity from './ActivityComponent/ActivityComponent';
 import { Jumbotron, Container, Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import { USERDATA } from '../shared/userData.js';
 
-let userdata = JSON.stringify(USERDATA);
-console.log(userdata);
-
 class Pairing extends Component {
     constructor(props) {
         super(props);
@@ -17,8 +14,7 @@ class Pairing extends Component {
             location: '',
             name: '',
             userdata: USERDATA,
-            hidden: false
-
+            shown: false
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -39,12 +35,12 @@ class Pairing extends Component {
         this.setState(state => ({
             location: state.userdata[0].location,
             name: state.userdata[0].name,
-            hidden: true
+            shown: true
         }))
         event.preventDefault();
     }
 
-
+    
 
 
     render() {
@@ -53,11 +49,11 @@ class Pairing extends Component {
                 <Jumbotron>
                     <Container>
                         <Row>
-                            <Col className="col-md-7 d-flex flex-column justify-content-center p-3">
+                            <Col xs="12" md="7" className="d-flex flex-column justify-content-center p-3">
                                 <h3 className="display-4 mb-1">Pairing</h3>
                                 <p className="mb-4 lead">Select your activity and availability to get paired.</p>
                             </Col>
-                            <Col className="col-md-5 p-4">
+                            <Col xs="12" md="5" className="p-4">
                                 <h3 className="mb-3">Pairing </h3>
                                 <Form onSubmit={this.handleSubmit}>
                                     <Row>
@@ -96,7 +92,7 @@ class Pairing extends Component {
 
 
 
-                {this.state.hidden && <Activity date={this.state.date} time={this.state.time} activity={this.state.activity} location={this.state.location} name={this.state.name} />}
+                {this.state.shown && <Activity date={this.state.date} time={this.state.time} activity={this.state.activity} location={this.state.location} name={this.state.name} />}
 
             </React.Fragment>
         );

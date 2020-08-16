@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SignIn from './SignInComponent';
 import Title from './TitleComponent';
 
-class Home extends Component {
-    render() {
+function Home(props) {
         return (
             <div>
                 <Title />
                 <SignIn />
             </div>
         );
-    }
 }
 
 export default Home;

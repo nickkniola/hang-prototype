@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
-function SignIn() {
+function SignIn(props) {
     return (
         <div>
             <Container className="py-4 mb-5">
@@ -35,7 +35,7 @@ function SignIn() {
                 </Row>
             </Container>
         </div>
-    )
+    );
 }
 
 export default SignIn;

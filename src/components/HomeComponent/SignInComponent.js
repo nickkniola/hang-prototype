@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 function SignIn(props) {
     return (
@@ -30,7 +31,11 @@ function SignIn(props) {
                 </Row>
                 <Row>
                     <Col>
-                        <Button color="primary">Submit</Button>
+                        <Button color="primary">
+                            <Link to={'/pairing'} style={{ color: 'white' }}>
+                                Submit
+                            </Link>
+                        </Button>
                     </Col>
                 </Row>
             </Container>

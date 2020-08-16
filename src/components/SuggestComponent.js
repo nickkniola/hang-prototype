@@ -14,29 +14,6 @@ function Suggest(props) {
     const [userdata] = useState(USERDATA);
     const [shown, setShown] = useState(false);
 
-    // this.state = {
-    //     date: '',
-    //     time: '',
-    //     activity: '',
-    //     numOfPeople: 2,
-    //     location: '',
-    //     name: '',
-    //     userdata: USERDATA,
-    //     shown: false
-    // };
-
-
-
-    // handleChange(event) {
-    //     const target = event.target;
-    //     const value = target.value;
-    //     const name = target.name;
-
-    //     this.setState({
-    //         [name]: value
-    //     });
-    // }
-
     const handleSubmit = event => {
 
         let today = new Date();
@@ -48,14 +25,6 @@ function Suggest(props) {
         setLocation(userdata[1].location);
         setName(userdata[1].name);
         setShown(true);
-
-        // setState(state => ({
-        //     time: ,
-        //     location: ,
-        //     name: userdata[1].name,
-        //     activity: userdata[1].activity,
-        //     shown: true
-        // }))
         event.preventDefault();
     }
 

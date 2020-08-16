@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Button, Jumbotron } from 'reactstrap';
-
+import { Link } from 'react-router-dom';
 
 function Title(props) {
     return (
@@ -20,13 +20,14 @@ function Title(props) {
                     <Row className="py-4">
                         <Col>
                             <Button color="primary">
-                                Learn More
-                        </Button>
+                                <Link to={'/pairing'} style={{ color: 'white' }} >
+                                    Learn More
+                                </Link>
+                            </Button>
                         </Col>
                     </Row>
                 </Container>
             </Jumbotron>
-
         </div>
     );
 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Activity from './ActivityComponent/ActivityComponent';
 import { Jumbotron, Container, Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import { USERDATA } from '../shared/userData.js';
+import { LOCATIONDATA } from '../shared/locationData.js';
 
 function Pairing(props) {
 
@@ -11,14 +12,19 @@ function Pairing(props) {
     const [numOfPeople, setNumOfPeople] = useState(2);
     const [location, setLocation] = useState('');
     const [name, setName] = useState('');
-    const [userdata] = useState(USERDATA);
     const [shown, setShown] = useState(false);
 
+    const [userdata] = useState(USERDATA);
+    const [locationdata] = useState(LOCATIONDATA);
+
     const handleSubmit = event => {
-        setLocation(userdata[0].location)
         setName(userdata[0].name)
         setShown(true);
         event.preventDefault();
+    }
+
+    const handleFood = () => {
+        setActivity()
     }
 
     return (
@@ -47,6 +53,18 @@ function Pairing(props) {
                                         </FormGroup>
                                     </Col>
                                 </Row>
+                                <FormGroup>
+                                    <Label for="location">Location</Label>
+                                    <Input name="location" type="select" className="form-control" id="location" value={location} onChange={e => setLocation(e.target.value)}>
+                                        <option value="Chicago">Chicago</option>
+                                        <option value="Houston">Houston</option>
+                                        <option value="Los Angeles">Los Angeles</option>
+                                        <option value="New York City">New York City</option>
+                                        <option value="Philadelphia">Philadelphia</option>
+                                        <option value="San Francisco">San Francisco</option>
+                                        <option value="San Jose">San Jose</option>
+                                    </Input>
+                                </FormGroup>
                                 <FormGroup>
                                     <Label for="activity">Activity</Label>
                                     <Input name="activity" type="select" className="form-control" id="activity" value={activity} onChange={e => setActivity(e.target.value)}>

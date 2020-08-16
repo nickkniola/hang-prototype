@@ -8,7 +8,6 @@ import Pairing from './PairingComponent';
 import Suggest from './SuggestComponent';
 
 function Main(props) {
-
     return (
         <div>
             <Header />

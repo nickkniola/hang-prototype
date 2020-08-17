@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Activity from './ActivityComponent/ActivityComponent';
-import { Jumbotron, Container, Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Jumbotron, Container, Row, Col, Form, FormGroup, Label, Input, Button, FormFeedback } from 'reactstrap';
 import { USERDATA } from '../shared/userData.js';
 import { LOCATIONDATA } from '../shared/locationData.js';
 
@@ -18,11 +18,11 @@ function Pairing(props) {
     const [locationdata] = useState(LOCATIONDATA);
 
     const handleSubmit = event => {
+        activity === 'food' ? setActivity('') : console.log('');
         const selectUserIndex = randomNumber()
         setName(userdata[selectUserIndex].name);
         setImage(userdata[selectUserIndex].image);
         setShown(true);
-        console.log(image);
         event.preventDefault();
     }
 
@@ -33,6 +33,7 @@ function Pairing(props) {
     const handleActivity = event => {
         switch (event.target.value) {
             case 'Food':
+                setActivity(event.target.value)
                 handleFood();
                 break;
             default:
@@ -43,9 +44,11 @@ function Pairing(props) {
     }
 
     const handleFood = () => {
+
         setRestaurant(
             locationdata.filter(obj => obj.city === location)[0]['name']
         );
+
     }
 
     const handleLocation = (event) => {
@@ -69,19 +72,22 @@ function Pairing(props) {
                                     <Col>
                                         <FormGroup>
                                             <Label>Date</Label>
-                                            <Input name="date" type="date" className="form-control" placeholder="0" draggable="true" value={date} onChange={e => setDate(e.target.value)} />
+                                            <Input name="date" type="date" className="form-control" placeholder="0" draggable="true" value={date} onChange={e => setDate(e.target.value)} required />
+                                            <FormFeedback>Select a date</FormFeedback>
                                         </FormGroup>
                                     </Col>
                                     <Col>
                                         <FormGroup>
                                             <Label>Time</Label>
-                                            <Input name="time" type="time" className="form-control" placeholder="0" draggable="true" value={time} onChange={e => setTime(e.target.value)} />
+                                            <Input name="time" type="time" className="form-control" placeholder="0" draggable="true" value={time} onChange={e => setTime(e.target.value)} required />
+                                            <FormFeedback className="invalid-feedback">Select a time</FormFeedback>
                                         </FormGroup>
                                     </Col>
                                 </Row>
                                 <FormGroup>
                                     <Label for="location">Location</Label>
-                                    <Input name="location" type="select" className="form-control" id="location" value={location} onChange={handleLocation}>
+                                    <Input name="location" type="select" className="form-control" id="location" value={location} onChange={handleLocation} required>
+                                        <option value="">Select...</option>
                                         <option value="Chicago">Chicago</option>
                                         <option value="Houston">Houston</option>
                                         <option value="Los Angeles">Los Angeles</option>
@@ -90,15 +96,18 @@ function Pairing(props) {
                                         <option value="San Francisco">San Francisco</option>
                                         <option value="San Jose">San Jose</option>
                                     </Input>
+                                    <FormFeedback>Select a city</FormFeedback>
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="activity">Activity</Label>
-                                    <Input name="activity" type="select" className="form-control" id="activity" value={activity} onChange={handleActivity}>
+                                    <Input name="activity" type="select" className="form-control" id="activity" value={activity} onChange={handleActivity} required>
+                                        <option value="">Select...</option>
                                         <option value="Sports">Sports</option>
                                         <option value="Movie">Movie</option>
                                         <option value="Food">Food</option>
                                         <option value="Museum">Museum</option>
                                     </Input>
+                                    <FormFeedback>Select an activity</FormFeedback>
                                 </FormGroup>
                                 <Button type="submit" value="submit" className="btn mt-4 btn-block btn-outline p-2" ><b>Select</b></Button>
                             </Form>
@@ -107,7 +116,7 @@ function Pairing(props) {
                 </Container>
             </Jumbotron>
 
-            {shown && <Activity date={date} time={time} activity={activity} location={location} name={name} restaurant={restaurant} image={image} />}
+            {shown && <Activity date={date} time={time} activity={activity === "Food" ? " " : activity} location={location} name={name} restaurant={restaurant} image={image} />}
 
         </React.Fragment>
     );

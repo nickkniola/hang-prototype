@@ -8,9 +8,9 @@ function Suggest(props) {
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
     const [activity, setActivity] = useState('');
-    // const [numOfPeople, setNumOfPeople] = useState(2);
     const [location, setLocation] = useState('');
     const [name, setName] = useState('');
+    const [image, setImage] = useState('');
     const [userdata] = useState(USERDATA);
     const [shown, setShown] = useState(false);
 
@@ -22,11 +22,20 @@ function Suggest(props) {
         let month = today.getMonth();
         let day = today.getDate();
 
+        activity === 'food' ? setActivity('') : console.log('');
+        const selectUserIndex = randomNumber()
+        setName(userdata[selectUserIndex].name);
+        setImage(userdata[selectUserIndex].image);
         setTime(`${hours}:${minutes}`);
         setActivity(userdata[randomNumber()].activity);
         setLocation(userdata[randomNumber()].location);
         setName(userdata[randomNumber()].name);
-        !date ? setDate(`${month}/${day}`) : console.log('have date');
+        if (date.length > 5) {
+            setDate(date.substr(5, 8))
+        }
+        if (!date) {
+            setDate(`${month}-${day}`)
+        }
         setShown(true);
         event.preventDefault();
     }
@@ -50,17 +59,13 @@ function Suggest(props) {
                                     <Label>Date</Label>
                                     <Input name="date" type="date" className="form-control" placeholder="0" draggable="true" value={date} onChange={e => setDate(e.target.value)} />
                                 </FormGroup>
-                                {/* <FormGroup>
-                                    <Label>People</Label>
-                                    <Input type="number" className="form-control" placeholder="2" value={numOfPeople} onChange={e => setNumOfPeople(e.target.value)} />
-                                </FormGroup> */}
                                 <Button type="submit" value="submit" className="btn mt-4 btn-block btn-outline p-2"><b>Select</b></Button>
                             </Form>
                         </Col>
                     </Row>
                 </Container>
             </Jumbotron>
-            {shown && <Activity date={date} time={time} activity={activity} location={location} name={name} />}
+            {shown && <Activity date={date} time={time} activity={activity} location={location} name={name} image={image} />}
         </React.Fragment>
     );
 }

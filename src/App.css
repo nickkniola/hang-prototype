@@ -46,3 +46,7 @@
   padding-right: 1rem;
 }
 
+.profile-image {
+  height: 128px;
+  width: 128px;
+}

@@ -8,7 +8,7 @@ function Suggest(props) {
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
     const [activity, setActivity] = useState('');
-    const [numOfPeople, setNumOfPeople] = useState(2);
+    // const [numOfPeople, setNumOfPeople] = useState(2);
     const [location, setLocation] = useState('');
     const [name, setName] = useState('');
     const [userdata] = useState(USERDATA);
@@ -19,14 +19,20 @@ function Suggest(props) {
         let today = new Date();
         let hours = today.getHours();
         let minutes = (today.getMinutes() < 10 ? '0' : '') + (today.getMinutes());
+        let month = today.getMonth();
+        let day = today.getDate();
 
         setTime(`${hours}:${minutes}`);
-        setActivity(userdata[1].activity);
-        setLocation(userdata[1].location);
-        setName(userdata[1].name);
+        setActivity(userdata[randomNumber()].activity);
+        setLocation(userdata[randomNumber()].location);
+        setName(userdata[randomNumber()].name);
+        !date ? setDate(`${month}/${day}`) : console.log('have date');
         setShown(true);
         event.preventDefault();
     }
+
+    const randomNumber = () => Math.floor(Math.random() * 4);
+
 
     return (
         <React.Fragment>
@@ -44,10 +50,10 @@ function Suggest(props) {
                                     <Label>Date</Label>
                                     <Input name="date" type="date" className="form-control" placeholder="0" draggable="true" value={date} onChange={e => setDate(e.target.value)} />
                                 </FormGroup>
-                                <FormGroup>
+                                {/* <FormGroup>
                                     <Label>People</Label>
                                     <Input type="number" className="form-control" placeholder="2" value={numOfPeople} onChange={e => setNumOfPeople(e.target.value)} />
-                                </FormGroup>
+                                </FormGroup> */}
                                 <Button type="submit" value="submit" className="btn mt-4 btn-block btn-outline p-2"><b>Select</b></Button>
                             </Form>
                         </Col>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Card, CardHeader, CardBody, CardTitle, CardText, Button, FormGroup, Label, Input } from 'reactstrap';
+import { Container, Row, Col, Card, CardHeader, CardBody, CardTitle, CardText, Button, FormGroup, Label, Input, Media } from 'reactstrap';
 
 function Activity(props) {
     return (
@@ -10,7 +10,8 @@ function Activity(props) {
                         <Card className="activity-card text-center">
                             <CardHeader>Activity Planned</CardHeader>
                             <CardBody>
-                                <CardTitle className="activity-card-title">{props.activity} in {props.location}</CardTitle>
+                                <Media className="profile-image" top src={props.image} alt="Profile Image" />
+                                <CardTitle className="activity-card-title">{props.restaurant} {props.activity} in {props.location}</CardTitle>
                                 <CardText className="activity-card-text">{props.date} at {props.time} with {props.name}</CardText>
                                 <Button className="mr-1" color="primary">Accept</Button>
                                 <Button className="ml-1" color="danger">Reject</Button>

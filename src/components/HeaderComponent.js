@@ -36,9 +36,9 @@ function Header(props) {
                         <img src="/assets/images/hang_logo.png" height="30" width="30" alt="Hang Logo" />Hang
                     </NavbarBrand>
                     <div className="ml-auto xs={mx-auto}">
-                        <NavLink className="nav-link-icon" to="/"><i className="fa fa-android  fa-fw fa-lg" ></i></NavLink>
-                        <NavLink className="nav-link-icon" to="/"><i className="fa fa-apple fa-fw fa-lg"></i></NavLink>
-                        <NavLink className="nav-link-icon" to="/"><i className="fa fa-envelope fa-fw fa-lg"></i></NavLink>
+                        <a className="nav-link-icon" href="/"><i className="fa fa-android  fa-fw fa-lg" ></i></a>
+                        <a className="nav-link-icon" href="/"><i className="fa fa-apple fa-fw fa-lg"></i></a>
+                        <a className="nav-link-icon" href="mailto:nickkniola@me.com"><i className="fa fa-envelope fa-fw fa-lg"></i></a>
                     </div>
                 </Collapse>
                 <NavbarBrand className="navbar-brand text-white d-block d-md-none mx-auto pr-4" href="/">

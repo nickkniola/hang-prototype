@@ -7,13 +7,19 @@ function Activity(props) {
 
     const [modal, setModal] = useState(false);
     const [linkToHome, setLinkToHome] = useState(false);
+    // const [reject, setReject] = useState(false);
 
     const toggleModal = () => setModal(!modal);
-    const userAccepts = () => {
-        setLinkToHome(true);
+    const userAccepts = () => setLinkToHome(true);
 
+    if (linkToHome) {
+        return (<Redirect push to="/home" />);
     }
-    if (linkToHome) { return (<Redirect push to="/home" />); }
+
+    // const rejecter = () => {
+    //     setReject(true);
+    // }
+
     return (
         <div className="activity py-5">
             <Container>
@@ -26,7 +32,7 @@ function Activity(props) {
                                 <CardTitle className="activity-card-title">{props.restaurant} {props.activity} in {props.location}</CardTitle>
                                 <CardText className="activity-card-text">{props.date} at {props.time} with {props.name}</CardText>
                                 <Button className="mr-1" color="primary" onClick={toggleModal}>Accept</Button>
-                                <Button className="ml-1" color="danger">Reject</Button>
+                                <Button className="ml-1" color="danger" >Reject</Button>
                                 <FormGroup className="py-5 px-5">
                                     <Label className="float-left" for="activityMessage">Message Them Directly</Label>
                                     <Input type="textarea" name="activityMessage" id="activityMessage"></Input>

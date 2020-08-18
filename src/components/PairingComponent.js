@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Activity from './ActivityComponent/ActivityComponent';
 import { Jumbotron, Container, Row, Col, Form, FormGroup, Label, Input, Button, FormFeedback } from 'reactstrap';
 import { USERDATA } from '../shared/userData.js';
@@ -17,14 +17,25 @@ function Pairing(props) {
     const [userdata] = useState(USERDATA);
     const [locationdata] = useState(LOCATIONDATA);
 
+    const cardFocus = useRef(null);
+
     const handleSubmit = event => {
         activity === 'food' ? setActivity('') : console.log('');
         const selectUserIndex = randomNumber()
         setName(userdata[selectUserIndex].name);
         setImage(userdata[selectUserIndex].image);
         setShown(true);
+        setTimeout(scrollToBottom, 0);
         event.preventDefault();
     }
+
+    const scrollToBottom = () => {
+        cardFocus.current.scrollIntoView({
+            behavior: "smooth"
+        })
+    };
+
+
 
     const randomNumber = () => Math.floor(Math.random() * 4);
 
@@ -115,7 +126,7 @@ function Pairing(props) {
                     </Row>
                 </Container>
             </Jumbotron>
-
+            <div ref={cardFocus} />
             {shown && <Activity date={date} time={time} activity={activity === "Food" ? " " : activity} location={location} name={name} restaurant={restaurant} image={image} />}
 
         </React.Fragment>

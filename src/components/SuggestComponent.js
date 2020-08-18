@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Activity from './ActivityComponent/ActivityComponent';
 import { Jumbotron, Container, Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import { USERDATA } from '../shared/userData.js';
@@ -14,8 +14,9 @@ function Suggest(props) {
     const [userdata] = useState(USERDATA);
     const [shown, setShown] = useState(false);
 
-    const handleSubmit = event => {
+    const cardFocus = useRef(null);
 
+    const handleSubmit = event => {
         let today = new Date();
         let hours = today.getHours();
         let minutes = (today.getMinutes() < 10 ? '0' : '') + (today.getMinutes());
@@ -29,7 +30,6 @@ function Suggest(props) {
         setTime(`${hours}:${minutes}`);
         setActivity(userdata[randomNumber()].activity);
         setLocation(userdata[randomNumber()].location);
-        setName(userdata[randomNumber()].name);
         if (date.length > 5) {
             setDate(date.substr(5, 8))
         }
@@ -37,9 +37,17 @@ function Suggest(props) {
             setDate(`${month}-${day}`)
         }
         setShown(true);
+        setTimeout(scrollToBottom, 0);
         event.preventDefault();
     }
 
+    const scrollToBottom = () => {
+        cardFocus.current.scrollIntoView({
+            behavior: "smooth"
+        })
+    };
+
+    
     const randomNumber = () => Math.floor(Math.random() * 4);
 
 
@@ -65,6 +73,7 @@ function Suggest(props) {
                     </Row>
                 </Container>
             </Jumbotron>
+            <div ref={cardFocus} />
             {shown && <Activity date={date} time={time} activity={activity} location={location} name={name} image={image} />}
         </React.Fragment>
     );

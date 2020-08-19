@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/nickkniola/hang/static/css/main.d2215518.chunk.css",
+    "main.js": "/nickkniola/hang/static/js/main.42ae6a25.chunk.js",
+    "main.js.map": "/nickkniola/hang/static/js/main.42ae6a25.chunk.js.map",
+    "runtime-main.js": "/nickkniola/hang/static/js/runtime-main.dddb6c46.js",
+    "runtime-main.js.map": "/nickkniola/hang/static/js/runtime-main.dddb6c46.js.map",
+    "static/css/2.3ca71447.chunk.css": "/nickkniola/hang/static/css/2.3ca71447.chunk.css",
+    "static/js/2.08aef468.chunk.js": "/nickkniola/hang/static/js/2.08aef468.chunk.js",
+    "static/js/2.08aef468.chunk.js.map": "/nickkniola/hang/static/js/2.08aef468.chunk.js.map",
+    "index.html": "/nickkniola/hang/index.html",
+    "precache-manifest.0b358ea132fa2315bafc399b1dcc1ed3.js": "/nickkniola/hang/precache-manifest.0b358ea132fa2315bafc399b1dcc1ed3.js",
+    "service-worker.js": "/nickkniola/hang/service-worker.js",
+    "static/css/2.3ca71447.chunk.css.map": "/nickkniola/hang/static/css/2.3ca71447.chunk.css.map",
+    "static/css/main.d2215518.chunk.css.map": "/nickkniola/hang/static/css/main.d2215518.chunk.css.map",
+    "static/js/2.08aef468.chunk.js.LICENSE.txt": "/nickkniola/hang/static/js/2.08aef468.chunk.js.LICENSE.txt",
+    "static/media/font-awesome.css": "/nickkniola/hang/static/media/fontawesome-webfont.fee66e71.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dddb6c46.js",
+    "static/css/2.3ca71447.chunk.css",
+    "static/js/2.08aef468.chunk.js",
+    "static/css/main.d2215518.chunk.css",
+    "static/js/main.42ae6a25.chunk.js"
+  ]
+}

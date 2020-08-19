@@ -16,14 +16,33 @@ function Pairing(props) {
     const [image, setImage] = useState('');
     const [userdata] = useState(USERDATA);
     const [locationdata] = useState(LOCATIONDATA);
+    const [modalRejectPairing, setModalRejectPairing] = useState(false);
 
     const cardFocus = useRef(null);
+
+    const userRejectPairing = () => {
+        setModalRejectPairing(true);
+        setTimeout(userReject2Pairing, 500)
+    };
+    const userReject2Pairing = () => {
+        if (activity === 'food') {
+            setActivity('');
+            handleFood();
+        }
+        const selectUserIndex = randomNumber()
+        setName(userdata[selectUserIndex].name);
+        setImage(userdata[selectUserIndex].image);
+        setModalRejectPairing(false);
+    }
 
     const handleSubmit = event => {
         activity === 'food' ? setActivity('') : console.log('');
         const selectUserIndex = randomNumber()
         setName(userdata[selectUserIndex].name);
         setImage(userdata[selectUserIndex].image);
+        if (date.length > 5) {
+            setDate(date.substr(5, 8))
+        }
         setShown(true);
         setTimeout(scrollToBottom, 0);
         event.preventDefault();
@@ -127,7 +146,7 @@ function Pairing(props) {
                 </Container>
             </Jumbotron>
             <div ref={cardFocus} />
-            {shown && <Activity date={date} time={time} activity={activity === "Food" ? " " : activity} location={location} name={name} restaurant={restaurant} image={image} />}
+            {shown && <Activity date={date} time={time} activity={activity === "Food" ? " " : activity} location={location} name={name} restaurant={restaurant} image={image} userReject={userRejectPairing} modalReject={modalRejectPairing} />}
 
         </React.Fragment>
     );

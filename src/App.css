@@ -50,3 +50,51 @@
   height: 128px;
   width: 128px;
 }
+
+.initial{
+  opacity:1;
+  transition: 1s;
+}
+
+.change{
+  opacity:0;
+  transition: opacity .5s;
+}
+
+/* .fadeOut{
+  opacity:0;
+  width:0;
+  height:0;
+  transition: width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s;
+
+}
+.fadeIn{
+  opacity:1;
+  width:100px;
+  height:100px;
+  transition: width 0.5s, height 0.5s, opacity 0.5s 0.5s; */
+
+.page-enter {
+    opacity: 0;
+}
+
+.page-enter-active {
+    opacity: 1;
+    transition: 400ms ease-out;
+}
+
+.page-exit {
+  opacity: 0;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transition: 300ms ease-in;
+}
+
+.height-div {
+  
+    position: relative;
+    min-height: 12vh;
+
+}

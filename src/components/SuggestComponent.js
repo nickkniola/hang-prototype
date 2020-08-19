@@ -13,8 +13,23 @@ function Suggest(props) {
     const [image, setImage] = useState('');
     const [userdata] = useState(USERDATA);
     const [shown, setShown] = useState(false);
+    const [modalReject, setModalReject] = useState(false);
 
     const cardFocus = useRef(null);
+
+    const userReject = () => {
+        setModalReject(true);
+        setTimeout(userReject2, 500)
+    };
+    const userReject2 = () => {
+        activity === 'food' ? setActivity('') : console.log('');
+        const selectUserIndex = randomNumber()
+        setName(userdata[selectUserIndex].name);
+        setImage(userdata[selectUserIndex].image);
+        setActivity(userdata[randomNumber()].activity);
+        setLocation(userdata[randomNumber()].location);
+        setModalReject(false);
+    }
 
     const handleSubmit = event => {
         let today = new Date();
@@ -47,7 +62,7 @@ function Suggest(props) {
         })
     };
 
-    
+
     const randomNumber = () => Math.floor(Math.random() * 4);
 
 
@@ -73,8 +88,9 @@ function Suggest(props) {
                     </Row>
                 </Container>
             </Jumbotron>
-            <div ref={cardFocus} />
-            {shown && <Activity date={date} time={time} activity={activity} location={location} name={name} image={image} />}
+            <div ref={cardFocus}/>
+            {shown && <Activity date={date} time={time} activity={activity} location={location} name={name} image={image} userReject={userReject} modalReject={modalReject} />}
+            <div className="height-div" />
         </React.Fragment>
     );
 }

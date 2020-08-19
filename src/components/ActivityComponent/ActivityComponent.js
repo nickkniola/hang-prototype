@@ -25,11 +25,13 @@ function Activity(props) {
                         <Card className="activity-card text-center">
                             <CardHeader>Activity Planned</CardHeader>
                             <CardBody>
-                                <Media className="profile-image" top src={props.image} alt="Profile Image" />
-                                <CardTitle className="activity-card-title">{props.restaurant} {props.activity} in {props.location}</CardTitle>
-                                <CardText className="activity-card-text">{props.date} at {props.time} with {props.name}</CardText>
-                                <Button className="mr-1" color="primary" onClick={toggleAcceptModal}>Accept</Button>
-                                <Button className="ml-1" color="danger" >Reject</Button>
+                                <div className={props.modalReject ? 'change' : 'initial'}>
+                                    <Media className="profile-image" top src={props.image} alt="Profile Image" />
+                                    <CardTitle className="activity-card-title mb-0">{props.restaurant} {props.activity} in {props.location}</CardTitle>
+                                    <CardText className="activity-card-text">{props.date} at {props.time} with {props.name}</CardText>
+                                </div>
+                                <Button className="mr-1 mt-3" color="primary" onClick={toggleAcceptModal}>Accept</Button>
+                                <Button className="ml-1 mt-3" color="danger" onClick={props.userReject}>Reject</Button>
                                 <FormGroup className="py-5 px-5">
                                     <Label className="float-left" for="activityMessage">Message Them Directly</Label>
                                     <Input type="textarea" name="activityMessage" id="activityMessage"></Input>

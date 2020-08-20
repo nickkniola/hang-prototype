@@ -19,7 +19,7 @@ function Title(props) {
                     </Row>
                     <Row className="py-4">
                         <Col>
-                            <Button color="primary">
+                            <Button color="primary" className="blue-button">
                                 <Link to={'/pairing'} style={{ color: 'white' }} >
                                     Learn More
                                 </Link>

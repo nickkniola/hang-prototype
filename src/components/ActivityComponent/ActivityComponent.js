@@ -30,7 +30,7 @@ function Activity(props) {
                                     <CardTitle className="activity-card-title mb-0">{props.restaurant} {props.activity} in {props.location}</CardTitle>
                                     <CardText className="activity-card-text">{props.date} at {props.time} with {props.name}</CardText>
                                 </div>
-                                <Button className="mr-1 mt-3" color="primary" onClick={toggleAcceptModal}>Accept</Button>
+                                <Button className="mr-1 mt-3 blue-button" color="primary" onClick={toggleAcceptModal}>Accept</Button>
                                 <Button className="ml-1 mt-3" color="danger" onClick={props.userReject}>Reject</Button>
                                 <FormGroup className="py-5 px-5">
                                     <Label className="float-left" for="activityMessage">Message Them Directly</Label>

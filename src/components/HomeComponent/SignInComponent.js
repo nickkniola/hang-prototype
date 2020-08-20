@@ -31,7 +31,7 @@ function SignIn(props) {
                 </Row>
                 <Row>
                     <Col>
-                        <Button color="primary">
+                        <Button color="primary" className="blue-button">
                             <Link to={'/pairing'} style={{ color: 'white' }}>
                                 Submit
                             </Link>

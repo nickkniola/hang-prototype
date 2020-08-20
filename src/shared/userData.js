@@ -6,7 +6,7 @@ export const USERDATA = [
         name: "Nick",
         activity: "Movie",
         location: "Los Angeles",
-        image: "public/assets/images/nick.jpg"
+        image: "assets/images/nick.jpg"
     },
     {
         id: 1,

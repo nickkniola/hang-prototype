@@ -23,7 +23,7 @@ function SignIn(props) {
                             <FormGroup row>
                                 <Label for="inputPassword" sm={3}>Password</Label>
                                 <Col sm={9}>
-                                    <Input type="password" name="password" id="inputPassword" />
+                                    <Input type="password" name="password" id="inputPassword" autoComplete="on"/>
                                 </Col>
                             </FormGroup>
                         </Form>

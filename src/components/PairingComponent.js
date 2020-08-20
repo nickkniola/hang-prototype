@@ -7,6 +7,7 @@ import { LOCATIONDATA } from '../shared/locationData.js';
 function Pairing(props) {
 
     const [date, setDate] = useState('');
+    const [newDate, setNewDate] = useState('');
     const [time, setTime] = useState('');
     const [activity, setActivity] = useState('');
     const [location, setLocation] = useState('');
@@ -41,7 +42,7 @@ function Pairing(props) {
         setName(userdata[selectUserIndex].name);
         setImage(userdata[selectUserIndex].image);
         if (date.length > 5) {
-            setDate(date.substr(5, 8))
+            setNewDate(date.substr(5,8))
         }
         setShown(true);
         setTimeout(scrollToBottom, 0);
@@ -146,7 +147,7 @@ function Pairing(props) {
                 </Container>
             </Jumbotron>
             <div ref={cardFocus} />
-            {shown && <Activity date={date} time={time} activity={activity === "Food" ? " " : activity} location={location} name={name} restaurant={restaurant} image={image} userReject={userRejectPairing} modalReject={modalRejectPairing} />}
+            {shown && <Activity date={newDate} time={time} activity={activity === "Food" ? " " : activity} location={location} name={name} restaurant={restaurant} image={image} userReject={userRejectPairing} modalReject={modalRejectPairing} />}
 
         </React.Fragment>
     );

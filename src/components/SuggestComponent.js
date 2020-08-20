@@ -6,6 +6,7 @@ import { USERDATA } from '../shared/userData.js';
 function Suggest(props) {
 
     const [date, setDate] = useState('');
+    const [newDate, setNewDate] = useState('');
     const [time, setTime] = useState('');
     const [activity, setActivity] = useState('');
     const [location, setLocation] = useState('');
@@ -35,7 +36,7 @@ function Suggest(props) {
         let today = new Date();
         let hours = today.getHours();
         let minutes = (today.getMinutes() < 10 ? '0' : '') + (today.getMinutes());
-        let month = today.getMonth();
+        let month = today.getMonth() + 1;
         let day = today.getDate();
 
         activity === 'food' ? setActivity('') : console.log('');
@@ -46,10 +47,10 @@ function Suggest(props) {
         setActivity(userdata[randomNumber()].activity);
         setLocation(userdata[randomNumber()].location);
         if (date.length > 5) {
-            setDate(date.substr(5, 8))
+            setNewDate(date.substr(5, 8));
         }
         if (!date) {
-            setDate(`${month}-${day}`)
+            setNewDate(`${month}-${day}`)
         }
         setShown(true);
         setTimeout(scrollToBottom, 0);
@@ -88,8 +89,8 @@ function Suggest(props) {
                     </Row>
                 </Container>
             </Jumbotron>
-            <div ref={cardFocus}/>
-            {shown && <Activity date={date} time={time} activity={activity} location={location} name={name} image={image} userReject={userReject} modalReject={modalReject} />}
+            <div ref={cardFocus} />
+            {shown && <Activity date={newDate} time={time} activity={activity} location={location} name={name} image={image} userReject={userReject} modalReject={modalReject} />}
             <div className="height-div" />
         </React.Fragment>
     );

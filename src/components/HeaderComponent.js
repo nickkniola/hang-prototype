@@ -33,7 +33,7 @@ function Header(props) {
                         </NavItem>
                     </Nav>
                     <NavbarBrand className="navbar-brand d-none d-md-block" href="/">
-                        <img src="/assets/images/hang_logo.png" height="30" width="30" alt="Hang Logo" />Hang
+                        <img src="assets/images/hang_logo.png" height="30" width="30" alt="Hang Logo" />Hang
                     </NavbarBrand>
                     <div className="ml-auto xs={mx-auto}">
                         <a className="nav-link-icon" href="/"><i className="fa fa-android  fa-fw fa-lg" ></i></a>
@@ -42,7 +42,7 @@ function Header(props) {
                     </div>
                 </Collapse>
                 <NavbarBrand className="navbar-brand text-white d-block d-md-none mx-auto pr-4" href="/">
-                    <img src="/assets/images/hang_logo.png" height="30" width="30" alt="Hang Logo" />Hang
+                    <img src="assets/images/hang_logo.png" height="30" width="30" alt="Hang Logo" />Hang
                 </NavbarBrand>
             </Navbar>
         </React.Fragment>
